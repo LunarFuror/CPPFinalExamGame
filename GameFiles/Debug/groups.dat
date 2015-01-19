@@ -1,0 +1,59 @@
+GROUP: 1
+MEMBERS: Taco
+
+GROUP: 2
+MEMBERS: Blob
+
+GROUP: 3
+MEMBERS: Skeleton
+
+GROUP: 4
+MEMBERS: Taco Hard_Shell_Taco
+
+GROUP: 5
+MEMBERS: Blob Jelly
+
+GROUP: 6
+MEMBERS: Skeleton Blood_Skeleton
+
+GROUP: 7
+MEMBERS: Blob Skeleton
+
+GROUP: 8
+MEMBERS: Taco Blob Skeleton
+
+GROUP: 9
+MEMBERS: Taco Hard_Shell_Taco Taco_Supreme
+
+GROUP: 0
+MEMBERS: Taco_Grande_Supreme
+
+GROUP: !
+MEMBERS: Hard_Shell_Taco
+
+GROUP: @
+MEMBERS: Jelly
+
+GROUP: #
+MEMBERS: Blood_Skeleton
+
+GROUP: $
+MEMBERS: Hard_Shell_Taco Hard_Shell_Taco
+
+GROUP: %
+MEMBERS: Jelly Jelly
+
+GROUP: ^
+MEMBERS: Blood_Skeleton Blood_Skeleton
+
+GROUP: &
+MEMBERS: Jelly Blood_Skeleton
+
+GROUP: *
+MEMBERS: Hard_Shell_Taco Jelly Skeleton
+
+GROUP: (
+MEMBERS: Hard_Shell_Taco Taco_Supreme Taco_Grande_Supreme
+
+GROUP: )
+MEMBERS: Taco_Grande_Supreme Taco_Grande_Supreme

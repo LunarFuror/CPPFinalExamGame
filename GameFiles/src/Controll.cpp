@@ -103,7 +103,7 @@ std::string Controll::getLine4(){
  * Yet to be implimented, 1. Begin, 2. Help, 3. Credits, 4. Quit
  */
 bool Controll::introMenu(){
-	int choice;
+	int choice = 0;
 	std::string buffer;
 	std::string output;
 
@@ -132,7 +132,7 @@ bool Controll::introMenu(){
 
 //display how to play 1. Return, 2. Legend
 void Controll::helpMenu(){
-	int choice;
+	int choice = 0;
 	std::string buffer;
 	std::string output;
 	while(choice != 1){

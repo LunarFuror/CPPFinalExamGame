@@ -53,7 +53,7 @@ class Character{
 		void setAttack(int);
 		double getDefense();
 		void setDefense(double);
-		int getState();
+		int getState() const;
 		std::string getStateText();
 		void setState();
 		void setCritChance(int);

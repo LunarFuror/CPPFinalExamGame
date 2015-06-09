@@ -98,8 +98,8 @@ bool MapTile::hasEnemiesLeft() const{
 int MapTile::numEnemiesLeft() const{
 	int enemyCount = 0;
 
-	for(Enemy testEnemy: enemies){
-		if(testEnemy.getState() != Enemy::DEAD){
+	for(int i = 0; i < enemies.size(); i++){
+		if(enemies.at(i).getState() != Character::State::DEAD){
 			enemyCount ++;
 		}
 	}

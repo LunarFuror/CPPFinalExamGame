@@ -20,7 +20,11 @@ void Display::setMenu(int menuType){
  * "clear"'s the screen by just spamming new lines all at once
  */
 void Display::clearScreen(){
-		std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << std::endl;
+		#ifdef WINDOWS_OS
+			system("CLS");
+		#else
+			std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" ;
+		#endif
 }
 /*
  * Does the math to display the health bar correctly for whoever is sent in
@@ -95,45 +99,45 @@ std::string Display::drawStatus(Character &theChar){
  * draws the boxes holding name, hp, status, etc when in combat
  */
 void Display::drawStatusBoxes(Hero &player, Character &enemy){
-	std::cout << "  ____________________________________    ____________________________________  " << std::endl;
-	std::cout << " /                                    \\  /                                    \\ " << std::endl;
-	std::cout << "||   Name: " << drawName(player) << " [" << drawStatus(player) << "]  ||||   Name: " << drawName(enemy) << " [" << drawStatus(enemy) << "]  ||" << std::endl;
-	std::cout << "||     HP: (" << drawHealthBar(player) << ")     ||||     HP: (" << drawHealthBar(enemy) << ")     ||" << std::endl;
-	std::cout << "||     " << drawLevel(player) << "     ||||                                    ||" << std::endl;
-	std::cout << " \\____________________________________/  \\____________________________________/ " << std::endl;
+	std::cout << "  ____________________________________    ____________________________________  " ;
+	std::cout << " /                                    \\  /                                    \\ " ;
+	std::cout << "||   Name: " << drawName(player) << " [" << drawStatus(player) << "]  ||||   Name: " << drawName(enemy) << " [" << drawStatus(enemy) << "]  ||" ;
+	std::cout << "||     HP: (" << drawHealthBar(player) << ")     ||||     HP: (" << drawHealthBar(enemy) << ")     ||" ;
+	std::cout << "||     " << drawLevel(player) << "     ||||                                    ||" ;
+	std::cout << " \\____________________________________/  \\____________________________________/ " ;
 }
 /*
  * display empty top 2 boxes
  */
 void Display::drawStatusEmpty(){
-	std::cout << "  ____________________________________    ____________________________________  " << std::endl;
-	std::cout << " /                                    \\  /                                    \\ " << std::endl;
-  std::cout << "||                                    ||||                                    ||" << std::endl;
-  std::cout << "||                                    ||||                                    ||" << std::endl;
-  std::cout << "||                                    ||||                                    ||" << std::endl;
-	std::cout << " \\____________________________________/  \\____________________________________/ " << std::endl;
+	std::cout << "  ____________________________________    ____________________________________  " ;
+	std::cout << " /                                    \\  /                                    \\ " ;
+  std::cout << "||                                    ||||                                    ||" ;
+  std::cout << "||                                    ||||                                    ||" ;
+  std::cout << "||                                    ||||                                    ||" ;
+	std::cout << " \\____________________________________/  \\____________________________________/ " ;
 }
 /*
  * super awesome and shiny title screen
  */
 void Display::drawStatusTitle(){
-	std::cout << "  ____________________________________    ____________________________________  " << std::endl;
-	std::cout << " /      __             __             \\  /   _____         __                 \\ " << std::endl;
-	std::cout << "||    .'  ':         .'  '.           |||| .'  | '-'     .'  ':               ||" << std::endl;
-	std::cout << "||    | ompletely    | ver|done       ||||      \\ he     |   __ame  ...the    ||" << std::endl;
-	std::cout << "||    '.__.:         '.__.'           ||||  '._.'        '.__.:|   assignment ||" << std::endl;
-	std::cout << " \\____________________________________/  \\____________________________________/ " << std::endl;
+	std::cout << "  ____________________________________    ____________________________________  " ;
+	std::cout << " /      __             __             \\  /   _____         __                 \\ " ;
+	std::cout << "||    .'  ':         .'  '.           |||| .'  | '-'     .'  ':               ||" ;
+	std::cout << "||    | ompletely    | ver|done       ||||      \\ he     |   __ame  ...the    ||" ;
+	std::cout << "||    '.__.:         '.__.'           ||||  '._.'        '.__.:|   assignment ||" ;
+	std::cout << " \\____________________________________/  \\____________________________________/ " ;
 }
 /*
  * draws only the player's health and such
  */
 void Display::drawStatusMap(Hero &player){
-	std::cout << "  ____________________________________    ____________________________________  " << std::endl;
-	std::cout << " /                                    \\  /                                    \\ " << std::endl;
-	std::cout << "||   Name: " << drawName(player) << " [" << drawStatus(player) << "]  ||||                                    ||" << std::endl;
-	std::cout << "||     HP: (" << drawHealthBar(player) << ")     ||||                                    ||" << std::endl;
-	std::cout << "||     " << drawLevel(player) << "     ||||                                    ||" << std::endl;
-	std::cout << " \\____________________________________/  \\____________________________________/ " << std::endl;
+	std::cout << "  ____________________________________    ____________________________________  " ;
+	std::cout << " /                                    \\  /                                    \\ " ;
+	std::cout << "||   Name: " << drawName(player) << " [" << drawStatus(player) << "]  ||||                                    ||" ;
+	std::cout << "||     HP: (" << drawHealthBar(player) << ")     ||||                                    ||" ;
+	std::cout << "||     " << drawLevel(player) << "     ||||                                    ||" ;
+	std::cout << " \\____________________________________/  \\____________________________________/ " ;
 }
 /*
  * holds the pictures for character and enemies.
@@ -162,14 +166,14 @@ void Display::drawPictureBoxes(Character &thePlayer, Character &theEnemy){
 	switch(thePlayer.getClass()){
 		case Character::WARRIOR:
 			if(thePlayer.getState() == Character::NORMAL){
-				playerLine1 = thePlayer.getNormalPic().substr(0,30);
-				playerLine2 = thePlayer.getNormalPic().substr(30,30);
-				playerLine3 = thePlayer.getNormalPic().substr(60,30);
-				playerLine4 = thePlayer.getNormalPic().substr(90,30);
-				playerLine5 = thePlayer.getNormalPic().substr(120,30);
-				playerLine6 = thePlayer.getNormalPic().substr(150,30);
-				playerLine7 = thePlayer.getNormalPic().substr(180,30);
-				playerLine8 = thePlayer.getNormalPic().substr(210,30);
+				playerLine1 = "        /'.   /\\   .'\\        ";
+				playerLine2 = "       //  '--||--'  \\\\       ";
+				playerLine3 = "      ||      ||      ||      ";
+				playerLine4 = "      ||      ||      ||      ";
+				playerLine5 = "       \\\\  .--||--.  //       ";
+				playerLine6 = "        \\.'   ||   '/         ";
+				playerLine7 = "              )(              ";
+				playerLine8 = "              ||              ";
 			}
 			else{
 				playerLine1 = "        /'.   /\\   .'\\        ";
@@ -364,97 +368,97 @@ void Display::drawPictureBoxes(Character &thePlayer, Character &theEnemy){
 			break;
 	}
 
-	std::cout << " /  ................................  \\  /  ................................  \\ " << std::endl;
-		std::cout << "||  :" << playerLine1 << ":  ||||  :" << enemyLine1 << ":  ||" << std::endl;
-		std::cout << "||  :" << playerLine2 << ":  ||||  :" << enemyLine2 << ":  ||" << std::endl;
-		std::cout << "||  :" << playerLine3 << ":  ||||  :" << enemyLine3 << ":  ||" << std::endl;
-		std::cout << "||  :" << playerLine4 << ":  ||||  :" << enemyLine4 << ":  ||" << std::endl;
-		std::cout << "||  :" << playerLine5 << ":  ||||  :" << enemyLine5 << ":  ||" << std::endl;
-		std::cout << "||  :" << playerLine6 << ":  ||||  :" << enemyLine6 << ":  ||" << std::endl;
-		std::cout << "||  :" << playerLine7 << ":  ||||  :" << enemyLine7 << ":  ||" << std::endl;
-		std::cout << "||  :" << playerLine8 << ":  ||||  :" << enemyLine8 << ":  ||" << std::endl;
-		std::cout << "||  :..............................:  ||||  :..............................:  ||" << std::endl;
-		std::cout << " \\____________________________________/__\\____________________________________/ " << std::endl;
+	std::cout << " /  ................................  \\  /  ................................  \\ " ;
+		std::cout << "||  :" << playerLine1 << ":  ||||  :" << enemyLine1 << ":  ||" ;
+		std::cout << "||  :" << playerLine2 << ":  ||||  :" << enemyLine2 << ":  ||" ;
+		std::cout << "||  :" << playerLine3 << ":  ||||  :" << enemyLine3 << ":  ||" ;
+		std::cout << "||  :" << playerLine4 << ":  ||||  :" << enemyLine4 << ":  ||" ;
+		std::cout << "||  :" << playerLine5 << ":  ||||  :" << enemyLine5 << ":  ||" ;
+		std::cout << "||  :" << playerLine6 << ":  ||||  :" << enemyLine6 << ":  ||" ;
+		std::cout << "||  :" << playerLine7 << ":  ||||  :" << enemyLine7 << ":  ||" ;
+		std::cout << "||  :" << playerLine8 << ":  ||||  :" << enemyLine8 << ":  ||" ;
+		std::cout << "||  :..............................:  ||||  :..............................:  ||" ;
+		std::cout << " \\____________________________________/__\\____________________________________/ " ;
 }
 /*
  * for now this is the title boxes
  */
 void Display::drawPictureTitle(){
-	std::cout << " /  ................................  \\  /  ................................  \\ " << std::endl;
-	std::cout << "||  :                              :  ||||  :         version 0.3          :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :..............................:  ||||  :..............................:  ||" << std::endl;
-	std::cout << " \\____________________________________/__\\____________________________________/ " << std::endl;
+	std::cout << " /  ................................  \\  /  ................................  \\ " ;
+	std::cout << "||  :                              :  ||||  :         version 0.3          :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :..............................:  ||||  :..............................:  ||" ;
+	std::cout << " \\____________________________________/__\\____________________________________/ " ;
 }
 /*
  * display the help info
  */
 void Display::drawPictureHelp(){
-	std::cout << " /  ................................  \\  /  ................................  \\ " << std::endl;
-	std::cout << "||  :        [How to Play]         :  ||||  :This box will have the map!   :  ||" << std::endl;
-	std::cout << "||  :This box will have a room     :  ||||  :Use it to navigate the dungeon:  ||" << std::endl;
-	std::cout << "||  :description letting you know  :  ||||  :Each floor will have enough   :  ||" << std::endl;
-	std::cout << "||  :what to think about the room, :  ||||  :keys to move on to the next,  :  ||" << std::endl;
-	std::cout << "||  :if there's a key in the room, :  ||||  :but some floors will have more:  ||" << std::endl;
-	std::cout << "||  :how many enemies are left,    :  ||||  :keys. Be sure to explore! It  :  ||" << std::endl;
-	std::cout << "||  :and if the room is PURIFIED!  :  ||||  :may make hard floors easier   :  ||" << std::endl;
-	std::cout << "||  :This means you can move on!   :  ||||  :when you come to them!        :  ||" << std::endl;
-	std::cout << "||  :..............................:  ||||  :..............................:  ||" << std::endl;
-	std::cout << " \\____________________________________/__\\____________________________________/ " << std::endl;
+	std::cout << " /  ................................  \\  /  ................................  \\ " ;
+	std::cout << "||  :        [How to Play]         :  ||||  :This box will have the map!   :  ||" ;
+	std::cout << "||  :This box will have a room     :  ||||  :Use it to navigate the dungeon:  ||" ;
+	std::cout << "||  :description letting you know  :  ||||  :Each floor will have enough   :  ||" ;
+	std::cout << "||  :what to think about the room, :  ||||  :keys to move on to the next,  :  ||" ;
+	std::cout << "||  :if there's a key in the room, :  ||||  :but some floors will have more:  ||" ;
+	std::cout << "||  :how many enemies are left,    :  ||||  :keys. Be sure to explore! It  :  ||" ;
+	std::cout << "||  :and if the room is PURIFIED!  :  ||||  :may make hard floors easier   :  ||" ;
+	std::cout << "||  :This means you can move on!   :  ||||  :when you come to them!        :  ||" ;
+	std::cout << "||  :..............................:  ||||  :..............................:  ||" ;
+	std::cout << " \\____________________________________/__\\____________________________________/ " ;
 }
 /*
  * display the credits
  */
 void Display::drawPictureCredits(){
-	std::cout << " /  ................................  \\  /  ................................  \\ " << std::endl;
-	std::cout << "||  : Writing     - Grayson Lorenz :  ||||  :      [ Special Thanks ]      :  ||" << std::endl;
-	std::cout << "||  : Programming - Grayson Lorenz :  ||||  :    Cards Against Humanity    :  ||" << std::endl;
-	std::cout << "||  : Enemy Art   - Grayson Lorenz :  ||||  :   Music albums  on Youtube   :  ||" << std::endl;
-	std::cout << "||  : Director    - Grayson Lorenz :  ||||  : His Highness, Grayson Lorenz :  ||" << std::endl;
-	std::cout << "||  : Producer    - Grayson Lorenz :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  : UI Design   - Grayson Lorenz :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  : Credits by  - Grayson Lorenz :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :        Grayson Lorenz        :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :..............................:  ||||  :..............................:  ||" << std::endl;
-	std::cout << " \\____________________________________/__\\____________________________________/ " << std::endl;
+	std::cout << " /  ................................  \\  /  ................................  \\ " ;
+	std::cout << "||  : Writing     - Grayson Lorenz :  ||||  :      [ Special Thanks ]      :  ||" ;
+	std::cout << "||  : Programming - Grayson Lorenz :  ||||  :    Cards Against Humanity    :  ||" ;
+	std::cout << "||  : Enemy Art   - Grayson Lorenz :  ||||  :   Music albums  on Youtube   :  ||" ;
+	std::cout << "||  : Director    - Grayson Lorenz :  ||||  : His Highness, Grayson Lorenz :  ||" ;
+	std::cout << "||  : Producer    - Grayson Lorenz :  ||||  :                              :  ||" ;
+	std::cout << "||  : UI Design   - Grayson Lorenz :  ||||  :                              :  ||" ;
+	std::cout << "||  : Credits by  - Grayson Lorenz :  ||||  :                              :  ||" ;
+	std::cout << "||  :        Grayson Lorenz        :  ||||  :                              :  ||" ;
+	std::cout << "||  :..............................:  ||||  :..............................:  ||" ;
+	std::cout << " \\____________________________________/__\\____________________________________/ " ;
 }
 /*
  * display the legend and generic map
  */
 void Display::drawPictureLegend(){
-	std::cout << " /  ................................  \\  /  ................................  \\ " << std::endl;
-	std::cout << "||  :          [Legend]            :  ||||  :             [Map]            :  ||" << std::endl;
-	std::cout << "||  :  t - You!                    :  ||||  :          O                   :  ||" << std::endl;
-	std::cout << "||  :  O - Walls                   :  ||||  :        OOtOOO                :  ||" << std::endl;
-	std::cout << "||  :  X - Locked Door             :  ||||  :       Ok  X  v               :  ||" << std::endl;
-	std::cout << "||  :  k - Key left in room        :  ||||  :        OO OOO                :  ||" << std::endl;
-	std::cout << "||  :  v - goes to next floor      :  ||||  :         OkO                  :  ||" << std::endl;
-	std::cout << "||  :   there's no going back      :  ||||  :          O                   :  ||" << std::endl;
-	std::cout << "||  :    to a previous floor       :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :..............................:  ||||  :..............................:  ||" << std::endl;
-	std::cout << " \\____________________________________/__\\____________________________________/ " << std::endl;
+	std::cout << " /  ................................  \\  /  ................................  \\ " ;
+	std::cout << "||  :          [Legend]            :  ||||  :             [Map]            :  ||" ;
+	std::cout << "||  :  t - You!                    :  ||||  :          O                   :  ||" ;
+	std::cout << "||  :  O - Walls                   :  ||||  :        OOtOOO                :  ||" ;
+	std::cout << "||  :  X - Locked Door             :  ||||  :       Ok  X  v               :  ||" ;
+	std::cout << "||  :  k - Key left in room        :  ||||  :        OO OOO                :  ||" ;
+	std::cout << "||  :  v - goes to next floor      :  ||||  :         OkO                  :  ||" ;
+	std::cout << "||  :   there's no going back      :  ||||  :          O                   :  ||" ;
+	std::cout << "||  :    to a previous floor       :  ||||  :                              :  ||" ;
+	std::cout << "||  :..............................:  ||||  :..............................:  ||" ;
+	std::cout << " \\____________________________________/__\\____________________________________/ " ;
 }
 /*
  * display classInfo!
  */
 void Display::drawPictureClass(){
-	std::cout << " /  ................................  \\  /  ................................  \\ " << std::endl;
-	std::cout << "||  : Warrior - Average attack     :  ||||  : Assassin- High attack, low   :  ||" << std::endl;
-	std::cout << "||  : and defense, low crit chance.:  ||||  : defense, high crit chance.   :  ||" << std::endl;
-	std::cout << "||  : Average speed and health.    :  ||||  : High speed lower health.     :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  : Guard - Low attack, high     :  ||||  : Hidden 4th option - there is :  ||" << std::endl;
-	std::cout << "||  : defense, and health, but slow:  ||||  : no hidden 4th option I'm not :  ||" << std::endl;
-	std::cout << "||  : average crit chance          :  ||||  : that deep. This isnt FFVII!  :  ||" << std::endl;
-	std::cout << "||  :                              :  ||||  :                              :  ||" << std::endl;
-	std::cout << "||  :..............................:  ||||  :..............................:  ||" << std::endl;
-	std::cout << " \\____________________________________/__\\____________________________________/ " << std::endl;
+	std::cout << " /  ................................  \\  /  ................................  \\ " ;
+	std::cout << "||  : Warrior - Average attack     :  ||||  : Assassin- High attack, low   :  ||" ;
+	std::cout << "||  : and defense, low crit chance.:  ||||  : defense, high crit chance.   :  ||" ;
+	std::cout << "||  : Average speed and health.    :  ||||  : High speed lower health.     :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  : Guard - Low attack, high     :  ||||  : Hidden 4th option - there is :  ||" ;
+	std::cout << "||  : defense, and health, but slow:  ||||  : no hidden 4th option I'm not :  ||" ;
+	std::cout << "||  : average crit chance          :  ||||  : that deep. This isnt FFVII!  :  ||" ;
+	std::cout << "||  :                              :  ||||  :                              :  ||" ;
+	std::cout << "||  :..............................:  ||||  :..............................:  ||" ;
+	std::cout << " \\____________________________________/__\\____________________________________/ " ;
 }
 /*
  * grabs the string from the map class, then displays the map and description, this method is fun
@@ -479,17 +483,17 @@ void Display::drawPictureMap(std::string description, std::string mapString){
 		mapArray[i] = mapString.substr(i*30, 30);
 	}
 
-	std::cout << " /  ................................  \\  /  ................................  \\ " << std::endl;
-	std::cout << "||  :" << descArray[0] << ":  ||||  :" << mapArray[0] << ":  ||" << "\n";
-	std::cout << "||  :" << descArray[1] << ":  ||||  :" << mapArray[1] << ":  ||" << "\n";
-	std::cout << "||  :" << descArray[2] << ":  ||||  :" << mapArray[2] << ":  ||" << "\n";
-	std::cout << "||  :" << descArray[3] << ":  ||||  :" << mapArray[3] << ":  ||" << "\n";
-	std::cout << "||  :" << descArray[4] << ":  ||||  :" << mapArray[4] << ":  ||" << "\n";
-	std::cout << "||  :" << descArray[5] << ":  ||||  :" << mapArray[5] << ":  ||" << "\n";
-	std::cout << "||  :" << descArray[6] << ":  ||||  :" << mapArray[6] << ":  ||" << "\n";
-	std::cout << "||  :" << descArray[7] << ":  ||||  :" << mapArray[7] << ":  ||" << "\n";
-	std::cout << "||  :..............................:  ||||  :..............................:  ||" << std::endl;
-	std::cout << " \\____________________________________/__\\____________________________________/ " << std::endl;
+	std::cout << " /  ................................  \\  /  ................................  \\ " ;
+	std::cout << "||  :" << descArray[0] << ":  ||||  :" << mapArray[0] << ":  ||" ;
+	std::cout << "||  :" << descArray[1] << ":  ||||  :" << mapArray[1] << ":  ||" ;
+	std::cout << "||  :" << descArray[2] << ":  ||||  :" << mapArray[2] << ":  ||" ;
+	std::cout << "||  :" << descArray[3] << ":  ||||  :" << mapArray[3] << ":  ||" ;
+	std::cout << "||  :" << descArray[4] << ":  ||||  :" << mapArray[4] << ":  ||" ;
+	std::cout << "||  :" << descArray[5] << ":  ||||  :" << mapArray[5] << ":  ||" ;
+	std::cout << "||  :" << descArray[6] << ":  ||||  :" << mapArray[6] << ":  ||" ;
+	std::cout << "||  :" << descArray[7] << ":  ||||  :" << mapArray[7] << ":  ||" ;
+	std::cout << "||  :..............................:  ||||  :..............................:  ||" ;
+	std::cout << " \\____________________________________/__\\____________________________________/ " ;
 }
 /*
  * luckily display and controll do most of the work here, but displays 4 lines, and the menu
@@ -656,15 +660,15 @@ void Display::drawMenuBoxes(std::string line1, std::string line2, std::string li
 		line4 += " ";
 	}
 
-	std::cout << " /                     [Message]                        \\ /      [Menu]       \\ " << std::endl;
-	std::cout << "|| [" << line1 << "] ||| [" << menu1 << "] ||" << std::endl;
-	std::cout << "|| [" << line2 << "] ||| [" << menu2 << "] ||" << std::endl;
-	std::cout << "|| [" << line3 << "] ||| [" << menu3 << "] ||" << std::endl;
-	std::cout << "|| [" << line4 << "] ||| [" << menu4 << "] ||" << std::endl;
-	std::cout << " \\______________________________________________________/ \\___________________/ " << std::endl;
+	std::cout << " /                     [Message]                        \\ /      [Menu]       \\ " ;
+	std::cout << "|| [" << line1 << "] ||| [" << menu1 << "] ||" ;
+	std::cout << "|| [" << line2 << "] ||| [" << menu2 << "] ||" ;
+	std::cout << "|| [" << line3 << "] ||| [" << menu3 << "] ||" ;
+	std::cout << "|| [" << line4 << "] ||| [" << menu4 << "] ||" ;
+	std::cout << " \\______________________________________________________/ \\___________________/ " ;
 	std::cout << "What do:";
 #ifdef WINDOWS_OS
-	Sleep(1);
+	Sleep(1000);
 #else
 	sleep(1);
 #endif

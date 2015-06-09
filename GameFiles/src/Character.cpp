@@ -125,7 +125,7 @@ void Character::setDefense(double def) {
 	}
 }
 
-int Character::getState(){
+int Character::getState() const{
 	return characterState;
 }
 

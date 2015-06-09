@@ -362,9 +362,9 @@ void Map::importGroups(){
 				}
 			}
 			//see if enemy exists by name in the master enemies group, if yes, add to temp group
-			for(Enemy thisEnemy: enemies){
-				if(buffer.compare(thisEnemy.getName()) == 0){
-					groupIn.push_back(thisEnemy);
+			for(int i = 0; i < enemies.size(); i++){
+				if(buffer.compare(enemies.at(i).getName()) == 0){
+					groupIn.push_back(enemies.at(i));
 				}
 			}
 		}

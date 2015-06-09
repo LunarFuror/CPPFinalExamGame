@@ -663,7 +663,11 @@ void Display::drawMenuBoxes(std::string line1, std::string line2, std::string li
 	std::cout << "|| [" << line4 << "] ||| [" << menu4 << "] ||" << std::endl;
 	std::cout << " \\______________________________________________________/ \\___________________/ " << std::endl;
 	std::cout << "What do:";
+#ifdef WINDOWS_OS
+	Sleep(1);
+#else
 	sleep(1);
+#endif
 }
 /*
  * over arching refresh just runs all the sub methods to make the whole screen happen

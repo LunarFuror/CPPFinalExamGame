@@ -6,7 +6,14 @@
  */
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
-
+#if (defined(_WIN32) || defined(_WIN64) || defined(WINDOWS_OS))
+	#include <windows.h>
+	#ifndef WINDOWS_OS
+		#define WINDOWS_OS
+	#endif
+#elif __linux
+// linux
+#endif
 #include <iostream>
 #include <string>
 #include <array>

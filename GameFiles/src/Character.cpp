@@ -57,7 +57,11 @@ void Character::setName(std::string name){
 	}
 	if(name.size() > 16){
 		characterName = name.substr(0,16);
+#ifdef WINDOWS_OS
+		Sleep(1);
+#else
 		sleep(1);
+#endif
 	}
 }
 

@@ -7,6 +7,16 @@
 #ifndef CHARACTER_H_
 #define CHARACTER_H_
 
+#if (defined(_WIN32) || defined(_WIN64) || defined(WINDOWS_OS))
+	#include <time.h>
+	#include <windows.h>
+	#ifndef WINDOWS_OS
+		#define WINDOWS_OS
+	#endif
+#elif __linux
+// linux
+#endif
+
 #include<iostream>
 #include<string>
 #include<cstdlib>

@@ -23,7 +23,7 @@ void Display::clearScreen(){
 		#ifdef WINDOWS_OS
 			system("CLS");
 		#else
-			std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" ;
+			system("clear");
 		#endif
 }
 /*
@@ -112,9 +112,9 @@ void Display::drawStatusBoxes(Hero &player, Character &enemy){
 void Display::drawStatusEmpty(){
 	std::cout << "  ____________________________________    ____________________________________  " ;
 	std::cout << " /                                    \\  /                                    \\ " ;
-  std::cout << "||                                    ||||                                    ||" ;
-  std::cout << "||                                    ||||                                    ||" ;
-  std::cout << "||                                    ||||                                    ||" ;
+	std::cout << "||                                    ||||                                    ||" ;
+	std::cout << "||                                    ||||                                    ||" ;
+	std::cout << "||                                    ||||                                    ||" ;
 	std::cout << " \\____________________________________/  \\____________________________________/ " ;
 }
 /*

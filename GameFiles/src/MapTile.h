@@ -13,8 +13,8 @@
 #include<vector>
 #include<exception>
 #include<sstream>
-#include"Enemy.h"
-#include"Hero.h"
+#include "Enemy.h"
+#include "Hero.h"
 
 class MapTile{
 		friend std::ostream &operator<<( std::ostream &, const MapTile &);

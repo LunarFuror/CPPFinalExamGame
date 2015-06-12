@@ -38,9 +38,16 @@ Map::Map(){
 	}
 	inGroups.close();
 
+	inImages.open("images.dat");
+	if(!inGroups){
+		std::cerr << "Could not read images file!" << std::endl;
+	}
+	inImages.close();
+
 	importMaps();
 	importEnemies();
 	importGroups();
+	importImages();
 	setUpRooms();
 }
 
@@ -374,6 +381,11 @@ void Map::importGroups(){
 		groupIn.clear();
 	}
 	std::cout << enemyGroups.size() << " Groups Created" << std::endl;
+}
+
+//import images
+void Map::importImages(){
+
 }
 
 //Incriment floor and set up rooms

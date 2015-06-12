@@ -5,6 +5,7 @@ SPEED: 5
 HEALTH: 30
 TYPE: 4
 CRY: The_taco_does_not_enjoy_being_picked_up!
+CLASS:
 
 NAME: Hard_Shell_Taco
 ATTACK: 15
@@ -13,6 +14,7 @@ SPEED: 5
 HEALTH: 40
 TYPE: 4
 CRY: That's_one_tough_taco!
+CLASS:
 
 NAME: Blob
 ATTACK: 15
@@ -21,6 +23,7 @@ SPEED: 10
 HEALTH: 10
 TYPE: 5
 CRY: Blob_attacks!_Watch_out!
+CLASS:
 
 NAME: Jelly
 ATTACK: 20
@@ -29,6 +32,7 @@ SPEED: 10
 HEALTH: 15
 TYPE: 5
 CRY: You_poke_the_Jelly._It_attacks!
+CLASS:
 
 NAME: Skeleton
 ATTACK: 30
@@ -37,6 +41,7 @@ SPEED: 10
 HEALTH: 80
 TYPE: 6
 CRY: You_enter_combat_with_the_Skeleton!
+CLASS:
 
 NAME: Blood_Skeleton
 ATTACK: 35
@@ -45,6 +50,7 @@ SPEED: 15
 HEALTH: 90
 TYPE: 6
 CRY: Blood_Skeleton_enters_combat_with_YOUUUU!
+CLASS:
 
 NAME: Taco_Supreme
 ATTACK: 50
@@ -53,6 +59,7 @@ SPEED: 20
 HEALTH: 200
 TYPE: 7
 CRY: YOUR_DOOM_IS_AT_HAND!_IT'S_TACO_SUPREME!
+CLASS:
 
 NAME: Taco_Grande_Lord
 ATTACK: 70
@@ -61,3 +68,4 @@ SPEED: 30
 HEALTH: 400
 TYPE: 7
 CRY: TACO_GRANDE_SUPREME?!_THE_END_IS_NIGH!
+CLASS:

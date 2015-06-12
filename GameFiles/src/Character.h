@@ -83,12 +83,14 @@ class Character{
 		int characterAtk;
 		int characterSpeed;
 		double characterDef;
-	  State characterState;
-	  int characterCritChance;
-	  ClassType characterClass;
-	  std::string normalPicture;
-	  std::string bloodyPicture;
-	  std::string deadPicture;
+		State characterState;
+		int characterCritChance;
+		ClassType characterClass;
+		std::string normalPicture;
+		std::string bloodyPicture;
+		std::string deadPicture;
+
+		std::string characterType;
 };
 
 #endif

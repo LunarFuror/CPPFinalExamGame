@@ -28,6 +28,7 @@ class Map{
 		void importMaps();
 		void importEnemies();
 		void importGroups();
+		void importImages();
 		void setUpRooms();
 		void enterRoom();
 		void moveNorth();
@@ -52,6 +53,7 @@ class Map{
 		std::ifstream inMaps;
 		std::ifstream inEnemies;
 		std::ifstream inGroups;
+		std::ifstream inImages;
 		std::string buffer;
 		int floorsCompleted;
 		unsigned int currentFloor;
